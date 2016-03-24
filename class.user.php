@@ -1,7 +1,6 @@
 <?php
 
 require_once('dbconfig.php');
-require_once('PassHash.php');
 
 class USER
 {	
@@ -25,7 +24,7 @@ class USER
 	{
 		try
 		{
-			$new_password = password_hash($upass, PASSWORD_DEFAULT);
+			$new_password = password_hash($userPass, PASSWORD_DEFAULT);
 			
 			$stmt = $this->conn->prepare("INSERT INTO user_details (user_firstname,user_lastname,user_email,user_password) 
 		                                               VALUES(:userFirstName, :userLastName, :userEail, :userPass)");
